@@ -2,7 +2,14 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-CategoryEnum = Literal["UTILITIES", "GROCERIES", "TRANSPORT", "RESTAURANTS", "ENTERTAINMENT", "OTHER"]
+CategoryEnum = Literal[
+    "UTILITIES",
+    "GROCERIES",
+    "TRANSPORT",
+    "RESTAURANTS",
+    "ENTERTAINMENT",
+    "OTHER"
+]
 
 
 class CategorizeRequest(BaseModel):

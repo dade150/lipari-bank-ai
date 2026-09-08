@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from lipari_bank_ai.models.categorize_model import CategorizeRequest, CategorizeResponse
 
 router = APIRouter(prefix="/api/ai", tags=["Categorize"])
@@ -14,15 +15,21 @@ async def categorize(req: CategorizeRequest) -> CategorizeResponse:
     desc = req.description.lower()
     if any(k in desc for k in ["enel", "bolletta", "luce", "gas"]):
         return CategorizeResponse(
-            category="UTILITIES", subcategory="ENERGY", confidence=0.92,
+            category="UTILITIES",
+            subcategory="ENERGY",
+            confidence=0.92,
             reasoning="Description contains utility keywords",
         )
     if any(k in desc for k in ["supermercato", "esselunga", "coop"]):
         return CategorizeResponse(
-            category="GROCERIES", subcategory="SUPERMARKET", confidence=0.85,
+            category="GROCERIES",
+            subcategory="SUPERMARKET",
+            confidence=0.85,
             reasoning="Description matches grocery store",
         )
     return CategorizeResponse(
-        category="OTHER", subcategory="UNCATEGORIZED", confidence=0.10,
+        category="OTHER",
+        subcategory="UNCATEGORIZED",
+        confidence=0.10,
         reasoning="No matching pattern",
     )

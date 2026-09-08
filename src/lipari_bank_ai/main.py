@@ -7,7 +7,7 @@ from pydantic import BaseModel
 
 from lipari_bank_ai.config import settings
 from lipari_bank_ai.exception.exception import AppError
-from lipari_bank_ai.router import chat, categorize
+from lipari_bank_ai.router import categorize, chat
 
 
 class HealthResponse(BaseModel):
@@ -23,6 +23,7 @@ app = FastAPI(
     description="Bootcamp Python AI Powered v1",
 )
 
+
 @app.exception_handler(AppError)
 async def app_exception_handler(req: Request, exc: AppError) -> JSONResponse:
     return JSONResponse(
@@ -35,6 +36,7 @@ async def app_exception_handler(req: Request, exc: AppError) -> JSONResponse:
             "path": req.url.path,
         },
     )
+
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(req: Request, exc: RequestValidationError) -> JSONResponse:
@@ -49,6 +51,7 @@ async def validation_exception_handler(req: Request, exc: RequestValidationError
             "details": [f"{e['loc'][-1]}: {e['msg']}" for e in exc.errors()],
         },
     )
+
 
 @app.exception_handler(Exception)
 async def general_exception_handler(req: Request, exc: Exception) -> JSONResponse:

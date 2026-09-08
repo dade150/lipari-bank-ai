@@ -1,4 +1,5 @@
 from datetime import UTC, datetime
+
 from fastapi import APIRouter
 
 from lipari_bank_ai.models.chat_model import ChatRequest, ChatResponse
