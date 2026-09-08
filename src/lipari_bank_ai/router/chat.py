@@ -1,8 +1,10 @@
-from datetime import UTC, datetime
+from fastapi import APIRouter, Depends
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from fastapi import APIRouter
-
+from lipari_bank_ai.db.session import get_db
 from lipari_bank_ai.models.chat_model import ChatRequest, ChatResponse
+from lipari_bank_ai.db.chat_service import ChatService
+
 
 router = APIRouter(prefix="/api/ai", tags=["Chat"])
 
@@ -11,14 +13,15 @@ router = APIRouter(prefix="/api/ai", tags=["Chat"])
     "/chat",
     response_model=ChatResponse,
     summary="Send message to AI assistant",
-    description="Multi-turn conversation. In G4 collegheremo LLM reale.",
+    description="Multi-turn conversation with PostgreSQL persistence.",
 )
-async def chat(req: ChatRequest) -> ChatResponse:
-    return ChatResponse(
-        session_id=req.session_id,
-        reply=f"Echo: {req.message}",
-        tokens_used=10,
-        cost_eur=0.0001,
-        model_used="dummy",
-        created_at=datetime.now(UTC),
+async def chat(
+    req: ChatRequest,
+    db: AsyncSession = Depends(get_db),
+) -> ChatResponse:
+    service = ChatService(db)
+
+    return await service.chat(
+        req=req,
+        user_id="demo-user",
     )

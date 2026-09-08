@@ -8,10 +8,14 @@ version = "0.1.0"
 description = "Bootcamp Python AI Powered v1 — Lipari Consulting"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi>=0.110",
+    "fastapi[standard]>=0.110",
     "uvicorn[standard]>=0.27",
     "pydantic>=2.6",
     "pydantic-settings>=2.2",
+    "sqlalchemy[asyncio]>=2.0.52",
+    "asyncpg>=0.31.0",
+    "alembic>=1.19.2",
+    "pgvector>=0.5.0",
 ]
 
 [tool.ruff]
