@@ -3,19 +3,10 @@ from datetime import UTC, datetime
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 
 from lipari_bank_ai.config import settings
 from lipari_bank_ai.exception.exception import AppError
 from lipari_bank_ai.router import categorize, chat
-
-
-class HealthResponse(BaseModel):
-    status: str
-    timestamp: str
-    app_name: str
-    version: str
-
 
 app = FastAPI(
     title=settings.app_name,
