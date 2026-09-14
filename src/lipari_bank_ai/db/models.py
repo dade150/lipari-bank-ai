@@ -2,15 +2,11 @@
 import uuid
 from datetime import UTC, datetime
 
-from sqlalchemy import DateTime, Float, ForeignKey, Integer, String
+from pgvector.sqlalchemy import Vector
+from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from lipari_bank_ai.db.session import Base
-
-# NB: DocumentChunk (pgvector) e' materiale di Giorno 5. Va aggiunto insieme
-# alla migration che abilita l'estensione Postgres:
-#   op.execute("CREATE EXTENSION IF NOT EXISTS vector")
-# altrimenti la creazione della colonna Vector(1536) fallisce.
 
 
 class ChatSession(Base):
@@ -43,3 +39,14 @@ class ChatMessage(Base):
     )
 
     session: Mapped["ChatSession"] = relationship(back_populates="messages")
+
+
+class DocumentChunk(Base):
+    __tablename__ = "document_chunks"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    document_id: Mapped[str] = mapped_column(String, index=True)
+    chunk_index: Mapped[int] = mapped_column(Integer)
+    content: Mapped[str] = mapped_column(Text)
+    embedding: Mapped[list[float]] = mapped_column(Vector(384))
+    chunk_metadata: Mapped[dict] = mapped_column(JSON, default=dict)
