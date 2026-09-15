@@ -1,0 +1,42 @@
+{"input": {"description": "Bonifico Enel Energia bolletta marzo", "amount": 85.50}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Esselunga supermercato", "amount": 45.20}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Distributore IP carburante", "amount": 60.00}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "Ristorante La Vigna", "amount": 35.00}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Netflix abbonamento mensile", "amount": 12.99}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Bonifico generico Mario Rossi", "amount": 50.00}, "expected": {"category": "OTHER"}}
+{"input": {"description": "Acea bolletta acqua", "amount": 42.30}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Coop supermercato alimentari", "amount": 78.90}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Eni benzina distributore", "amount": 75.00}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "Pizzeria Da Luigi", "amount": 28.50}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Spotify abbonamento", "amount": 9.99}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Bonifico affitto appartamento", "amount": 800.00}, "expected": {"category": "OTHER"}}
+{"input": {"description": " TIM telefono bolletta", "amount": 29.90}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Carrefour supermercato", "amount": 65.40}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Treno Trenitalia Milano Roma", "amount": 89.00}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "Barcaffè espresso bar", "amount": 1.50}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Amazon Prime Video", "amount": 4.99}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Versamento conto risparmi", "amount": 500.00}, "expected": {"category": "OTHER"}}
+{"input": {"description": "Enel gas bolletta inverno", "amount": 120.00}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Lidl supermercato", "amount": 38.70}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Autostrada telepass pedaggio", "amount": 12.50}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "Gelateria artigianale", "amount": 6.00}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Sky abbonamento calcio", "amount": 25.00}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Trasferimento conto cointestato", "amount": 200.00}, "expected": {"category": "OTHER"}}
+{"input": {"description": "Fastweb internet bolletta", "amount": 24.90}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Conad spesa settimanale", "amount": 92.15}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Parcheggio Garage centro", "amount": 8.00}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "Sushi restaurant Tokyo", "amount": 42.00}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Disney+ abbonamento", "amount": 5.99}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Bonifico consulente finanziario", "amount": 150.00}, "expected": {"category": "OTHER"}}
+{"input": {"description": " Edison luce bolletta", "amount": 95.00}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Pam supermercato", "amount": 55.80}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Bollo auto regionsle", "amount": 120.00}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "McDonald's pranzo", "amount": 11.50}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Videogioco Steam", "amount": 29.99}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Rimborso amico", "amount": 30.00}, "expected": {"category": "OTHER"}}
+{"input": {"description": "Vodafone mobile bolletta", "amount": 19.90}, "expected": {"category": "UTILITIES"}}
+{"input": {"description": "Eurospin discount", "amount": 32.40}, "expected": {"category": "GROCERIES"}}
+{"input": {"description": "Bike sharing deposito", "amount": 2.00}, "expected": {"category": "TRANSPORT"}}
+{"input": {"description": "Gelateria Sweet Dreams", "amount": 4.50}, "expected": {"category": "RESTAURANTS"}}
+{"input": {"description": "Apple Music abbonamento", "amount": 10.99}, "expected": {"category": "ENTERTAINMENT"}}
+{"input": {"description": "Donazione Croce Rossa", "amount": 25.00}, "expected": {"category": "OTHER"}}

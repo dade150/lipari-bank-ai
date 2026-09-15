@@ -1,0 +1,20 @@
+{"query": "Costo bonifico SEPA istantaneo", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Quanto costa un bonifico online", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Tempo bonifico estero extra-SEPA", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Limite importo bonifico istantaneo", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Commissioni allo sportello", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Costo bonifico verso paesi extra-SEPA", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Tempo esecuzione bonifico standard", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Bonifico SEPA quanto costa online", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Costo bonifico istantaneo limite", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Dove trovo le commissioni dei bonifici", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Quanto costa bonifico rapido", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Bonifico istantaneo funziona subito", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Differenza bonifico SEPA ed extra-SEPA", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Bonifico online piu economico", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Quanto tempo bonifico estero", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Costo bonifico 15000 euro", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Bonifico SEPA velocita esecuzione", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Tariffe bonifici LipariBank", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Bonifico istantaneo disponibile importi", "expected_doc_id": "commissioni_bonifico"}
+{"query": "Spese bonifico banca", "expected_doc_id": "commissioni_bonifico"}
