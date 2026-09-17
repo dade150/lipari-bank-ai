@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 
 from lipari_bank_ai.config import settings
 from lipari_bank_ai.exception.exception import AppError
-from lipari_bank_ai.router import advice, categorize, chat, documents
+from lipari_bank_ai.router import admin, advice, categorize, chat, documents
 
 app = FastAPI(
     title=settings.app_name,
@@ -68,3 +68,4 @@ app.include_router(chat.router)
 app.include_router(categorize.router)
 app.include_router(advice.router)
 app.include_router(documents.router)
+app.include_router(admin.router)
