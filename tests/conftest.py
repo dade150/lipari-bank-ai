@@ -1,12 +1,12 @@
 # tests/conftest.py
+from unittest.mock import AsyncMock
+
 import pytest
 import pytest_asyncio
-from unittest.mock import AsyncMock
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
-from lipari_bank_ai.llm.types import LLMResponse
 from lipari_bank_ai.db.session import Base
-
+from lipari_bank_ai.llm.types import LLMResponse
 
 # URL del database di test isolato (porta 5433 e nome con _test per sicurezza)
 TEST_DB_URL = "postgresql+asyncpg://lipari:lipari@localhost:5438/lipari_ai_test"
@@ -27,10 +27,10 @@ def mock_llm():
 
 @pytest.fixture
 def mock_embedding():
-    """Mock embedding provider; ritorna un vettore di 1536 zeri."""
+    """Mock embedding provider; ritorna un vettore di 384 zeri."""
     mock = AsyncMock()
-    mock.embed = AsyncMock(return_value=[[0.0] * 1536])
-    mock.embed_one = AsyncMock(return_value=[0.0] * 1536)
+    mock.embed = AsyncMock(return_value=[[0.0] * 384])
+    mock.embed_one = AsyncMock(return_value=[0.0] * 384)
     return mock
 
 

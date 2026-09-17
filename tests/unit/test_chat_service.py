@@ -1,9 +1,9 @@
 
 import pytest
 
-from lipari_bank_ai.services.chat_service import ChatService
 from lipari_bank_ai.exception.exception import ChatSessionNotFoundError
 from lipari_bank_ai.models.chat_model import ChatRequest
+from lipari_bank_ai.services.chat_service import ChatService
 
 
 @pytest.mark.asyncio

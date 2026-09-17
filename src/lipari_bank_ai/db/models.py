@@ -3,7 +3,7 @@ import uuid
 from datetime import UTC, datetime
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, Numeric, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from lipari_bank_ai.db.session import Base
@@ -50,3 +50,36 @@ class DocumentChunk(Base):
     content: Mapped[str] = mapped_column(Text)
     embedding: Mapped[list[float]] = mapped_column(Vector(384))
     chunk_metadata: Mapped[dict] = mapped_column(JSON, default=dict)
+
+
+class BankAccount(Base):
+    __tablename__ = "bank_accounts"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id: Mapped[str] = mapped_column(String, index=True)
+    account_type: Mapped[str] = mapped_column(String)
+    balance: Mapped[float] = mapped_column(Numeric(12, 2))
+    currency: Mapped[str] = mapped_column(String, default="EUR")
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
+    )
+
+    transactions: Mapped[list["Transaction"]] = relationship(
+        back_populates="account",
+        cascade="all, delete-orphan",
+    )
+
+
+class Transaction(Base):
+    __tablename__ = "transactions"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    account_id: Mapped[str] = mapped_column(ForeignKey("bank_accounts.id"), index=True)
+    amount: Mapped[float] = mapped_column(Numeric(12, 2))
+    description: Mapped[str] = mapped_column(Text)
+    category: Mapped[str] = mapped_column(String, default="OTHER")
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
+    )
+
+    account: Mapped["BankAccount"] = relationship(back_populates="transactions")
