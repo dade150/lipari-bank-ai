@@ -1,3 +1,4 @@
+import logging
 from datetime import UTC, datetime
 
 from fastapi import FastAPI, Request
@@ -7,6 +8,8 @@ from fastapi.responses import JSONResponse
 from lipari_bank_ai.config import settings
 from lipari_bank_ai.exception.exception import AppError
 from lipari_bank_ai.router import admin, advice, categorize, chat, documents
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title=settings.app_name,
@@ -46,7 +49,7 @@ async def validation_exception_handler(req: Request, exc: RequestValidationError
 
 @app.exception_handler(Exception)
 async def general_exception_handler(req: Request, exc: Exception) -> JSONResponse:
-    # logger.exception(exc) in G7
+    logger.exception("Unhandled exception at %s", req.url.path)
     return JSONResponse(
         status_code=500,
         content={

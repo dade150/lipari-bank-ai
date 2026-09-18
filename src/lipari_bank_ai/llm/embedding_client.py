@@ -2,11 +2,10 @@ from collections.abc import Callable
 from functools import lru_cache
 from typing import Any
 
-from sentence_transformers import SentenceTransformer
-
 
 @lru_cache(maxsize=1)
-def _get_model() -> SentenceTransformer:
+def _get_model() -> "SentenceTransformer":
+    from sentence_transformers import SentenceTransformer
     return SentenceTransformer("all-MiniLM-L6-v2")
 
 
